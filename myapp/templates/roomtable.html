@@ -1,0 +1,118 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'roomtable/fonts/icomoon/style.css' %}">
+
+    <link rel="stylesheet" href="{% static 'roomtable/css/owl.carousel.min.css' %}">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'roomtable/css/bootstrap.min.css' %}">
+    
+    <!-- Style -->
+    <link rel="stylesheet" href="{% static 'roomtable/css/style.css' %}">
+
+    <title>Table #8</title>
+  </head>
+  <body style="background: #333399;">
+  
+
+  <div class="content">
+    
+    <div class="container">
+      <a href="/sup/" class="btn btn-secondary mb-3">Back</a>
+      
+
+      <div class="table-responsive custom-table-responsive">
+
+        <table class="table custom-table">
+          <thead class="text-center">
+            <tr>  
+
+
+              
+              <th scope="col">Room No</th>
+
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody class="text-center">
+       {% for j in rrec %}
+            <tr scope="row">
+
+              <td>{{j.rno}}</td>
+
+              <td>
+                <a href="/pick/{{j.rno}}" class="btn btn-primary text-bold">Pick now</a>
+              </td>
+            </tr>
+       {% endfor %}
+          </tbody>
+        </table>
+      </div>
+
+
+    </div>
+
+  </div>
+
+  <div></div>
+
+
+
+    <div class="container">
+
+
+      <div class="table-responsive custom-table-responsive mb-5">
+
+        <table class="table custom-table ">
+          <thead class="text-center">
+            <tr>
+
+
+
+              <th scope="col">Room No</th>
+
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody class="text-center">
+          {% for j in trec1 %}
+            <tr scope="row">
+
+              <td>{{j.rno}}</td>
+
+              <td>
+                <a href="/del/{{j.rno}}" class="btn btn-danger text-bold">Cancel</a>
+              </td>
+            </tr>
+
+          {% endfor %}
+
+          </tbody>
+        </table>
+        <a href="/pay/" class="btn btn-success">Pay Now</a>
+        <form method="post"  action="/pay/">
+          {% csrf_token %}
+<!--          <button type="submit" class="btn btn-success w-100" name="s1">pay Now</button>-->
+        </form>
+      </div>
+
+
+    </div>
+
+  </div>
+
+    
+
+    <script src="{% static 'roomtable/js/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'roomtable/js/popper.min.js' %}"></script>
+    <script src="{% static 'roomtable/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'roomtable/js/main.js' %}"></script>
+  </body>
+</html>

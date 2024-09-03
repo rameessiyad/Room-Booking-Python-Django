@@ -1,0 +1,67 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+  <head>
+  	<title>My Bookings</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+	<link rel="stylesheet" href="{% static 'mybk/css/style.css' %}">
+
+	</head>
+	<body>
+	<section class="ftco-section">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-4">
+					<h2 class="heading-section">My Bookings</h2>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="table-wrap">
+						<table class="table">
+						  <thead class="thead-primary text-center">
+						    <tr>
+								<th>Room Type</th>
+						        <th>From</th>
+						        <th>To</th>
+								<th>Persons</th>
+								<th>Total</th>
+								<th colspan="2">Action</th>
+						    </tr>
+						  </thead>
+						  <tbody class="text-center">
+						  {% for j in brec %}
+						    <tr class="alert" role="alert">
+						        <td>{{j.rtype}}</td>
+				                <td>{{j.datef}}</td>
+								<td>{{j.dateto}}</td>
+								<td>{{j.nop}}</td>
+								<td>{{j.totamt}} ₹</td>
+								<td><a href="/vmore/{{j.bno}}/" class="btn btn-primary text-white">View More</a>
+								  <a href="/delroom/{{j.bno}}/" class="btn btn-danger text-white">Cancel</a>
+								</td>
+						    </tr>
+						  {% endfor %}
+						  </tbody>
+						</table>
+						<a href="/sup/" class="btn btn-warning text-white">Back</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<script src="{% static 'mybk/js/jquery.min.js' %}"></script>
+  <script src="{% static 'mybk/js/popper.js' %}"></script>
+  <script src="{% static 'mybk/js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'mybk/js/main.js' %}"></script>
+
+	</body>
+</html>
+
